@@ -2,6 +2,7 @@
 #################################################
 /app/Config/database.php
 /app/tmp
+*.mo
 
 # IDE and editor specific files #
 #################################
