@@ -1,31 +1,3 @@
-<style>
-.material-tooltip {
-  padding: 10px 8px;
-  font-size: 1rem;
-  z-index: 2000;
-  background-color: transparent;
-  border-radius: 2px;
-  color: #fff;
-  min-height: 1px;
-  line-height: 120%;
-  opacity: 0;
-  position: absolute;
-  text-align: center;
-  max-width: calc(100% - 4px);
-  overflow: hidden;
-  left: 0;
-  top: 50px;
-  pointer-events: none;
-  visibility: hidden;
-}
-}
-</style>
-
-<script>
-  tooltipVerticalMovement = '2px';
-</script>
-
-
 
 <div class="row">
   <div class="col m10 offset-m1">
@@ -62,8 +34,3 @@
 
   </div>
 </div>
-
-
-<script>
-
-</script>
