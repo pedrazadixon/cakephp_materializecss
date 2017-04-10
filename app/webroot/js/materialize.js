@@ -1731,7 +1731,7 @@ if (jQuery) {
               targetTop = origin.offset().top - tooltipHeight - margin;
               targetLeft = origin.offset().left + originWidth/2 - tooltipWidth/2;
               newCoordinates = repositionWithinScreen(targetLeft, targetTop, tooltipWidth, tooltipHeight);
-              tooltipVerticalMovement = '-10px';
+              tooltipVerticalMovement = '0px';
               backdrop.css({
                 bottom: 0,
                 left: 0,
