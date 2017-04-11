@@ -1,13 +1,12 @@
 <style>
 #contenido {
-padding-left: 300px;
+	padding-left: 300px;
 }
-
 @media only screen and (max-width : 992px) {
-#contenido {
-	padding-left: 0;
-	padding-top: 30px;
-}
+	#contenido {
+		padding-left: 0;
+		padding-top: 30px;
+	}
 }
 </style>
 
@@ -23,9 +22,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<title>
 		Iniciar Sesión
 	</title>
-		<?php echo $this->Html->charset('UTF-8'); ?>
+		<?php //echo $this->Html->charset('UTF-8'); ?>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
 
 	<?php
 		echo $this->Html->meta('icon');

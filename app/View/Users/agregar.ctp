@@ -17,9 +17,11 @@
 
       <div class="input-field col s12">
         <i class="material-icons prefix">build</i>
-            <?php echo $this->Form->input('', array(
-                      'options' => array('admin' => 'Admin', 'author' => 'Author'),
-                      'div'=>false)); ?>
+            <?php echo $this->Form->input('users_roles_id', array(
+                      'options' => $roles,
+                      'label' => false,
+                      'div' => false,
+                      )); ?>
       </div>
 
       <div class="" style="font-weight: 500;">
@@ -27,10 +29,12 @@
       </div>
 
     <?php echo $this->Form->end(); ?>
+    
   </div>
 </div>
 
 <script>
+// inicializacion de select
 $(document).ready(function() {
   $('select').material_select();
 });

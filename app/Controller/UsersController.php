@@ -37,14 +37,18 @@ class UsersController extends AppController {
     }
 
     public function agregar() {
+
+      $this->loadModel('Users_role');
+      $this->set('roles',$this->Users_role->find('list', array('fields' => array('id','rol'))));
+
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
+                $this->Session->setFlash('Usuario creado correctamente','flash/ok');
                 return $this->redirect(array('action' => 'index'));
             }
             $this->Session->setFlash(
-                __('The user could not be saved. Please, try again.')
+                __('El usuario no puede ser creado. Por favor intente nuevamente.')
             );
         }
     }

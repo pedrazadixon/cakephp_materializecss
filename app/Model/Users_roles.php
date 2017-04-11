@@ -1,6 +1,6 @@
 <?php
-class users_roles extends AppModel {
-   var $name = 'users_roles';
+class Users_roles extends AppModel {
+   var $name = 'Users_roles';
    var $belongsTo = array('User');
 }
 ?>
