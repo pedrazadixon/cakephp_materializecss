@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-04-2017 a las 23:52:26
+-- Tiempo de generación: 11-04-2017 a las 21:45:53
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -28,19 +28,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `username` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nombres` varchar(100) NOT NULL,
+  `apellidos` varchar(100) NOT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `users_roles_id` int(10) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `users_roles_id`, `created`, `modified`) VALUES
-(1, 'dix', '$2a$10$iAcoE95wHt0A/Oe.FtiG3uToG46TTSuDPwO1vK7kHvisS6m2Y7.C.', 1, '2017-04-07 21:00:41', '2017-04-07 21:00:41');
+INSERT INTO `users` (`id`, `nombres`, `apellidos`, `username`, `password`, `users_roles_id`, `created`, `modified`) VALUES
+(1, 'Dixon', 'Pedraza', 'dix', '$2a$10$alntJe89Kk8qJmAgoJCN..AzZsZTq4Nah.ZHVF2p6cG88CF/uLloq', 1, '2017-04-11 21:37:49', '2017-04-11 21:37:49');
 
 -- --------------------------------------------------------
 
@@ -50,15 +52,16 @@ INSERT INTO `users` (`id`, `username`, `password`, `users_roles_id`, `created`, 
 
 CREATE TABLE `users_roles` (
   `id` int(11) NOT NULL,
-  `rol` varchar(50) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `rol` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
 -- Volcado de datos para la tabla `users_roles`
 --
 
 INSERT INTO `users_roles` (`id`, `rol`) VALUES
-(1, 'administrador');
+(1, 'Administrador'),
+(2, 'Usuario Estándar');
 
 --
 -- Índices para tablas volcadas
@@ -74,7 +77,7 @@ ALTER TABLE `users`
 -- Indices de la tabla `users_roles`
 --
 ALTER TABLE `users_roles`
-  ADD UNIQUE KEY `id` (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -85,6 +88,11 @@ ALTER TABLE `users_roles`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `users_roles`
+--
+ALTER TABLE `users_roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
