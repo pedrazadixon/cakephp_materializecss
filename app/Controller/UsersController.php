@@ -55,6 +55,10 @@ class UsersController extends AppController {
 
     public function editar($id = null) {
         $this->User->id = $id;
+
+        $this->loadModel('Users_role');
+        $this->set('roles',$this->Users_role->find('list', array('fields' => array('id','rol'))));
+
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
@@ -72,21 +76,18 @@ class UsersController extends AppController {
         }
     }
 
-    public function delete($id = null) {
-        // Prior to 2.5 use
-        // $this->request->onlyAllow('post');
-
+    public function eliminar($id = null) {
         $this->request->allowMethod('post');
-
         $this->User->id = $id;
+        $usuario = ($this->User->findById($id));
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
+            throw new NotFoundException(__('ID de usuario invalido'));
         }
         if ($this->User->delete()) {
-            $this->Session->setFlash(__('User deleted'));
+            $this->Session->setFlash('Usuario <b>'.$usuario["User"]["username"].'</b> ha sido ELIMINADO correctamente.', 'Flash/ok');
             return $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('User was not deleted'));
+        $this->Session->setFlash(__('El usuario no pudo ser borrado'));
         return $this->redirect(array('action' => 'index'));
     }
 }

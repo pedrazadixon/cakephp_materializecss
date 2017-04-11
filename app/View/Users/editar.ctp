@@ -21,11 +21,6 @@
       </div>
 
       <div class="input-field col s12">
-      <i class="material-icons prefix" style="padding-top: 10px;">vpn_key</i>
-        <?php echo $this->Form->input('password' , array('label' => 'Contraseña' , 'type' => 'password' , 'div'=>false , 'class' => 'validate')); ?>
-      </div>
-
-      <div class="input-field col s12">
         <i class="material-icons prefix">build</i>
             <?php echo $this->Form->input('users_roles_id', array(
                       'options' => $roles,

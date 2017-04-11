@@ -1,6 +1,12 @@
-
-
-
+<style>
+td {
+  padding: 0px 5px;
+}
+.modal {
+  width: 30%;
+  top: 15% !important;
+}
+</style>
 
   <div class="container" style="width: 95%;">
 
@@ -9,31 +15,69 @@
     <table class="bordered">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Job Position</th>
-                <th>Since</th>
-                <th>Salary</th>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Usuario</th>
+                <th>Rol</th>
+                <th>Creado</th>
                 <th class="center">Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Andrew Mike</td>
-                <td>Develop</td>
-                <td>2013</td>
-                <td>€ 99,225</td>
+          <?php foreach ($users as $usuario): ?>
+              <?php //echo "<pre>";var_dump($usuario); exit; ?>
+              <tr>
+                <td><?php echo $usuario["User"]["id"]; ?></td>
+                <td><?php echo $usuario["User"]["nombre_completo"]; ?></td>
+                <td><?php echo $usuario["User"]["username"]; ?></td>
+                <td><?php echo $usuario["roles"]["rol"]; ?></td>
+                <td><?php echo $usuario["User"]["created"]; ?></td>
                 <td class="center">
-                  <a class="btn-floating transparent z-depth-0 tooltipped" data-position="top" data-delay="50" data-tooltip="Editar">
-                    <i class="material-icons brown-text">edit</i>
-                  </a>
-                  <a class="btn-floating transparent z-depth-0 tooltipped" data-position="top" data-delay="50" data-tooltip="Eliminar">
-                    <i class="material-icons red-text">delete</i>
-                  </a>
+                  <?php echo $this->Html->Link('<i class="material-icons brown-text">edit</i>',
+                              array('action' => 'editar', $usuario["User"]["id"]),
+                              array('class'=>'btn-floating transparent z-depth-0 tooltipped',
+                                    'data-position'=>'top',
+                                    'data-delay'=>'50',
+                                    'data-tooltip'=>'Editar',
+                                    'escape' => false));
+                  ?>
+                  <!-- Modal activador (link) -->
+                  <?php
+                  echo $this->Html->link(
+                      '<i class="material-icons red-text">delete</i>',
+                      '#modal' . $usuario["User"]["id"],
+                      array('class'=>'btn-floating transparent z-depth-0 tooltipped',
+                            'data-position'=>'top',
+                            'data-delay'=>'50',
+                            'data-tooltip'=>'Eliminar',
+                            'escape' => false));
+                  ?>
+                  <!-- Modal cuerpo (div diseño) -->
+                  <div id="modal<?php echo $usuario["User"]["id"]; ?>" class="modal">
+                      <div class="modal-content">
+                        <p>¿Esta seguro que desea eliminar el usuario <b><?php echo $usuario["User"]["username"]; ?></b>?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <?php echo $this->Form->postLink('ELIMINAR',
+                                    array('action' => 'eliminar', $usuario["User"]["id"]),
+                                    array('class'=>'modal-action modal-close waves-effect waves-red btn-flat red-text',
+                                          'escape' => false));
+                        ?>
+                        <a href="#!" class="modal-action modal-close waves-effect waves btn-flat ">CANCELAR</a>
+                      </div>
+                  </div>
+
                 </td>
-            </tr>
+              </tr>
+
+          <?php endforeach; ?>
         </tbody>
     </table>
-
   </div>
+
+<script type="text/javascript">
+// inicializacion Modals (para los dialogos)
+$(document).ready(function(){
+$('.modal').modal();
+});
+</script>

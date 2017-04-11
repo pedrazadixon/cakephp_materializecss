@@ -14,6 +14,9 @@ class User extends AppModel {
       return true;
   }
 
+  public $virtualFields = array(
+    'nombre_completo' => 'CONCAT(nombres, " ", apellidos)'
+);
 
   public $belongsTo = array
 	(
@@ -21,7 +24,6 @@ class User extends AppModel {
 								  'foreignKey'   => 'users_roles_id'
 								)
 	);
-
 
     public $validate = array(
         'username' => array(
