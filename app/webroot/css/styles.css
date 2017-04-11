@@ -1,0 +1,11 @@
+/*  HOJA  DE  ESTILOS  ADICIONALES  */
+
+#contenido {
+	padding-left: 300px;
+}
+@media only screen and (max-width : 992px) {
+	#contenido {
+		padding-left: 0;
+		padding-top: 30px;
+	}
+}
