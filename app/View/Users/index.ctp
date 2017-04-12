@@ -8,11 +8,20 @@ td {
 }
 </style>
 
-  <div class="container" style="width: 95%;">
+<nav class="teal">
+  <div class="nav-wrapper">
+    <ul id="nav-mobile" class="left">
 
+      <li><a href="#"><i class="material-icons left">add</i><span class="hide-on-med-and-down">Nuevo Usuario</span></a></li>
+
+    </ul>
+  </div>
+</nav>
+
+  <div class="container" style="width: 95%;">
     <i class="material-icons medium icon-demo left">supervisor_account</i><h4 class="left">Lista de usuarios</h4>
 
-    <table class="bordered">
+    <table class="bordered highlight">
         <thead>
             <tr>
                 <th>ID</th>

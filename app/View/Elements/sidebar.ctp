@@ -34,8 +34,7 @@
   </li>
 </ul>
 
-<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-
+<a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
 
 
 <script type="text/javascript">
