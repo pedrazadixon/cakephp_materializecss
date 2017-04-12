@@ -78,6 +78,12 @@ class UsersController extends AppController {
 
     public function eliminar($id = null) {
         $this->request->allowMethod('post');
+
+        if ($id === '1') {
+          $this->Session->setFlash('No se permite eliminar el usuario ID 1', 'Flash/error');
+          return $this->redirect(array('action' => 'index'));
+        }
+
         $this->User->id = $id;
         $usuario = ($this->User->findById($id));
         if (!$this->User->exists()) {
