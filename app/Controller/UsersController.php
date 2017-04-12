@@ -80,7 +80,7 @@ class UsersController extends AppController {
         $this->request->allowMethod('post');
 
         if ($id === '1') {
-          $this->Session->setFlash('No se permite eliminar el usuario ID 1', 'Flash/error');
+          $this->Session->setFlash('No se permite eliminar el usuario ID 1 (reservado para el administrador)', 'Flash/alerta');
           return $this->redirect(array('action' => 'index'));
         }
 

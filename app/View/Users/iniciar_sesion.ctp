@@ -42,8 +42,8 @@ body {
                       <?php echo $this->Flash->render(); ?>
                     </div>
 
-                    <div class="center-align" style="font-weight: 500;">
-                      <button type="submit" class="z-depth-0 white teal-text btn-large">Iniciar</button>
+                    <div class="center-align" style="font-weight:500;">
+                      <button style="margin-bottom: 15px;" type="submit" class="waves-effect waves-teal btn-flat btn-large teal-text">Iniciar</button>
                     </div>
 
             <?php echo $this->Form->end(); ?>
